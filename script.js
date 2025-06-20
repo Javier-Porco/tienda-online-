@@ -27,3 +27,8 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
+document.addEventListener("click", function() {
+  contador++;
+  actualizarContador();
+});
+
