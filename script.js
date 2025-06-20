@@ -31,10 +31,16 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
-// ✅ Manejo de toque/click en pantallas táctiles
-document.addEventListener("click", function() {
+document.addEventListener("click", function(event) {
+  // Evitar que el clic en botones u otros elementos genere errores
+  if (event.target.tagName !== "BUTTON" && event.target.id !== "historial") {
+    contador++;
+    actualizarContador();
+  }
+}, false);
+
+// (opcional) soporte para pantallas táctiles puras
+document.addEventListener("touchstart", function(event) {
   contador++;
   actualizarContador();
-});
-
-
+}, { passive: true });
